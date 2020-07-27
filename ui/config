@@ -1,0 +1,14 @@
+{
+    ".url": {
+        "SYNO.SDS.ExamplePackage": {
+            "allUsers": true,
+            "desc": "Example Package",
+            "icon": "images/{0}.png",
+            "port": "8888",
+            "protocol": "https",
+            "title": "Example Package",
+            "type": "url",
+            "url": "/"
+        }
+    }
+}
