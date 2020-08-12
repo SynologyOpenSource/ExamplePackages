@@ -1,4 +1,4 @@
-// Copyright (c) 2000-2016 Synology Inc. All rights reserved.
+// Copyright (c) 2000-2020 Synology Inc. All rights reserved.
 
 #include <sys/sysinfo.h>
 #include <syslog.h>

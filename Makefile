@@ -1,4 +1,4 @@
-# Copyright (c) 2000-2016 Synology Inc. All rights reserved.
+# Copyright (c) 2000-2020 Synology Inc. All rights reserved.
 
 ## You can use CC CFLAGS LD LDFLAGS CXX CXXFLAGS AR RANLIB READELF STRIP after include env.mak
 include /env.mak
