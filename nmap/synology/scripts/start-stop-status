@@ -1,0 +1,19 @@
+#!/bin/sh
+# Copyright (C) 2000-2021 Synology Inc. All rights reserved.
+
+case $1 in
+	start)
+		exit 0
+	;;
+	stop)
+		exit 0
+	;;
+	status)
+		if [ -h "/usr/local/bin/nmap" ]; then
+			exit 0
+		else
+			exit 1
+		fi
+	;;
+esac
+

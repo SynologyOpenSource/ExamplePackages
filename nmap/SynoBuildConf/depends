@@ -1,0 +1,5 @@
+[BuildDependent]
+libpcap
+
+[default]
+all="7.0"

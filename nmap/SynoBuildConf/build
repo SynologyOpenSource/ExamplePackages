@@ -1,0 +1,28 @@
+#!/bin/sh
+# Copyright (c) 2000-2021 Synology Inc. All rights reserved.
+
+PKG_NAME=nmap
+INST_DIR=/tmp/_${PKG_NAME}
+
+case ${MakeClean} in
+    [Yy][Ee][Ss])
+        make distclean
+        ;;
+esac
+
+LDFLAGS+=$(shell pkg-config --libs libnl libnl-genl)
+
+env CC="${CC}" CXX="${CXX}" LD="${LD}" AR=${AR} STRIP=${STRIP} RANLIB=${RANLIB} NM=${NM} \
+    CFLAGS="${CFLAGS}" CXXFLAGS="$CXXFLAGS $CFLAGS" \
+    LDFLAGS="${LDFLAGS} -ldbus-1" \
+    ./configure ${ConfigOpt} \
+    --prefix=${INST_DIR} \
+    --without-ndiff \
+    --without-zenmap \
+    --without-nping \
+    --without-ncat \
+    --without-nmap-update \
+    --without-liblua \
+    --with-libpcap=/usr/local
+
+make ${MAKE_FLAGS}
