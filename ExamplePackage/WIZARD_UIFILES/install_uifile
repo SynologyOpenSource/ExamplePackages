@@ -1,0 +1,54 @@
+[{
+    "step_title": "Step1",
+    "items": [{
+        "type": "singleselect",
+        "desc": "a radio group",
+        "subitems": [{
+            "key": "myradio1",
+            "desc": "Radio button 1",
+            "defaultValue": false
+        }, {
+            "key": "myradio2",
+            "desc": "Radio button 2",
+            "defaultValue": true
+        }]
+    }]
+}, {
+    "step_title": "Step2",
+    "items": [{
+        "type": "multiselect",
+        "desc": "a check group",
+        "subitems": [{
+            "key": "mycheck1",
+            "desc": "Check button 1"
+        }, {
+            "key": "mycheck2",
+            "desc": "Check button 2",
+            "defaultValue": true
+        }]
+    }, {
+        "type": "textfield",
+        "desc": "textfield",
+        "subitems": [{
+            "key": "mytextfield1",
+            "desc": "textfield 1",
+            "defaultValue": "default",
+            "validator": {
+                "allowBlank": false,
+                "minLength": 2,
+                "maxLength": 10
+            }
+        },{
+            "key": "mytextfield2",
+            "desc": "textfield 2",
+            "emptyText": "abc1@cde.com",
+            "validator": {
+                "vtype": "email",
+                "regex": {
+                    "expr": "/[0-9]/i",
+                    "errorText": "Error"
+                }
+            }
+        }]
+    }]
+}]
