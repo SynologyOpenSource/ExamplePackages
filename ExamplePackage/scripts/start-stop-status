@@ -1,0 +1,31 @@
+#!/bin/sh
+# Copyright (C) 2000-2020 Synology Inc. All rights reserved.
+
+case $1 in
+	start)
+		### Start this package.
+		examplePkg "Start"
+		echo "the package has been started" > $SYNOPKG_TEMP_LOGFILE
+		exit 0
+	;;
+	stop)
+		### Stop this package.
+		examplePkg "Stop"
+		echo "the package has been stopped" > $SYNOPKG_TEMP_LOGFILE
+		exit 0
+	;;
+	status)
+		### Check package alive.
+		if [ -h "/usr/local/bin/examplePkg" ]; then
+			exit 0
+		else
+			exit 1
+		fi
+	;;
+	killall)
+        ;;
+	log)
+		exit 0
+	;;
+esac
+

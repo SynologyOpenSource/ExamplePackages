@@ -1,0 +1,8 @@
+#!/bin/bash
+# Copyright (c) 2000-2021 Synology Inc. All rights reserved.
+
+make DESTDIR=$TmpInstDir install
+
+if [ "x$NOSTRIP" != "xNOSTRIP" ]; then
+        ${STRIP} ${TmpInstDir}/*
+fi

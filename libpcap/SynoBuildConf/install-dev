@@ -1,0 +1,10 @@
+#!/bin/bash
+# Copyright (c) 2000-2021 Synology Inc. All rights reserved.
+
+case ${CleanOnly} in
+	[Yy][Ee][Ss])
+		return
+		;;
+esac
+
+make DESTDIR=${DebDevDir} install

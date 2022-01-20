@@ -1,0 +1,23 @@
+#!/bin/bash
+# Copyright (c) 2000-2021 Synology Inc. All rights reserved.
+
+case ${MakeClean} in
+	[Yy][Ee][Ss])
+		make distclean
+		;;
+esac
+
+case ${CleanOnly} in
+	[Yy][Ee][Ss])
+		return
+		;;
+esac
+# prefix with /usr/local, all files will be installed into /usr/local
+env CC="${CC}" CXX="${CXX}" LD="${LD}" AR=${AR} STRIP=${STRIP} RANLIB=${RANLIB} NM=${NM} \
+	CFLAGS="${CFLAGS} -Os" CXXFLAGS="${CXXFLAGS}" LDFLAGS="${LDFLAGS}" \
+	./configure ${ConfigOpt} \
+	--with-pcap=linux --prefix=/usr/local
+
+make ${MAKE_FLAGS}
+
+make install
