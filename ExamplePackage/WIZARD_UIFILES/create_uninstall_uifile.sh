@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PKG_UTILS="/source/synopkgutils/pkg_util.sh"
+PKG_UTILS="/pkgscripts/include/pkg_util.sh"
 
 . $PKG_UTILS
 . ./uifile_setting.sh

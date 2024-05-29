@@ -1,0 +1,12 @@
+.example-package-app {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .title {
+    margin-bottom: 18px;
+    font-size: 18px;
+  }
+}

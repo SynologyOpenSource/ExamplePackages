@@ -6,12 +6,21 @@ include /env.mak
 EXEC= examplePkg
 OBJS= examplePkg.o
 
-all: $(EXEC)
+SUBDIR=ui WIZARD_UIFILES
 
-$(EXEC): $(OBJS)
-	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)
+.PHONY: all install $(SUBDIR)
 
-install: $(EXEC)
+all: $(EXEC) $(SUBDIR)
+
+$(SUBDIR):
+	@echo "===>" $@
+	GenerateModuleFiles.php $@ $@
+	$(MAKE) -C $@ INSTALLDIR=$(INSTALLDIR)/$@ DESTDIR=$(DESTDIR) PREFIX=$(PREFIX) $(MAKECMDGOALS);
+	@echo "<===" $@
+
+packageinstall: $(SUBDIR)
+
+install: $(EXEC) $(SUBDIR)
 	mkdir -p $(DESTDIR)/usr/local/bin/
 	install $< $(DESTDIR)/usr/local/bin/
 

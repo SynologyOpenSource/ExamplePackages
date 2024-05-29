@@ -8,7 +8,7 @@
         <v-input syno-id="input" v-model="confirmPassword" />
       </v-form-item>
       <v-form-item syno-id="form-item-input" :label="portLabel" control-flex="230px">
-        <v-input syno-id="input" v-model="port" />
+        <v-input syno-id="input" v-model="port" number-only />
       </v-form-item>
     </v-form>
   </pkg-center-step-content>
@@ -43,7 +43,7 @@ export default defineComponent({
         validator: (rule, value, callback) => {
           // Your password rule
           if (value.length < 10) {
-            return callback(new Error($t(_S('lang'), 'mariadb10', 'invalid_user_password_2')));
+            return callback(new Error($t(_S('lang'), 'ui', 'invalid_user_password')));
           }
           return callback();
         }
@@ -63,15 +63,17 @@ export default defineComponent({
     };
 
     return {
+      /* package center needed */
+      getNext,
+      checkState,
+      headline,
+      getValues,
+      /* */
       form,
       rules,
       password,
       confirmPassword,
       port,
-      getNext,
-      checkState,
-      headline,
-      getValues,
       newPasswordLabel: $t(_S('lang'), 'ui', 'db_new_password'),
       confirmPasswordLabel: $t(_S('lang'), 'ui', 'db_confirm_password'),
       portLabel: $t(_S('lang'), 'wizard', 'port'),

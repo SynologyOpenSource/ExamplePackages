@@ -1,0 +1,8 @@
+{
+    "ExamplePackage.js":{
+        "JSfiles": [
+            "dist/example-package.bundle.js"
+        ],
+        "params": "-s -c skip"
+    }
+}

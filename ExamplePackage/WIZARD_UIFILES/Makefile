@@ -1,4 +1,4 @@
-include ../Makefile.inc
+include /env.mak
 
 .PHONY: all install packageinstall clean
 

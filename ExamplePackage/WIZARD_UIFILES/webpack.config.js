@@ -3,8 +3,8 @@ const fs = require('fs');
 const webpack = require('webpack');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const STRING_PATH = '/source/uistring/MariaDB';
-const { getString } = require('/source/synopkgutils/string.js');
+const STRING_PATH = '/source/ExamplePackage/ui/texts';
+const { getString } = require('/pkgscripts/strings.js');
 
 // Retrive the strings from the uistring folder
 const stringsEntries = [
@@ -12,7 +12,7 @@ const stringsEntries = [
 	['wizard', 'wizard_set_data_title'],
 	['ui', 'db_new_password'],
 	['ui', 'db_confirm_password'],
-	['mariadb10', 'invalid_user_password_2'],
+	['ui', 'invalid_user_password'],
 ];
 
 function resolve (dir) {
@@ -27,7 +27,7 @@ async function traverseStringPath() {
 		texts[lang] = {};
 		for (const [section, key] of stringsEntries) {
 			texts[lang][section] = texts[lang][section] ?? {};
-			texts[lang][section][key] = getString(langStringFile, section, key).replace('@PKG_NAME@', 'MariaDB');
+			texts[lang][section][key] = getString(langStringFile, section, key);
 		}
 	});
 	return texts;
