@@ -44,7 +44,10 @@ export default defineComponent({
       owner = owner ?? props.getOwner();
       _checkState(owner);
       const nextButton = owner.getButton('next');
-      const isFormValid = await form.value?.validate();
+      let isFormValid = false;
+      if (form.value?.isDirty()) {
+        isFormValid = await form.value?.validate();
+      }
       nextButton.setDisabled(!isFormValid);
     };
 
